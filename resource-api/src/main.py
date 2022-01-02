@@ -96,6 +96,12 @@ def dynamodb_get(id):
     else:
         return item['Item']
 
+
+@app.route("/", methods=['GET'])
+def health_check():
+    return "Service is up and running"
+
+
 @app.route("/list", methods=['GET'])
 def dynamodb_list():
     table = dynamodb.Table(dynamodb_table)
